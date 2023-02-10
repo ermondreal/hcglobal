@@ -1,0 +1,124 @@
+@import "global";
+
+header{
+	height: 100px;
+	display: flex;
+	align-items: center;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+}
+
+footer{
+	border-top: 1px solid gray;
+}
+
+.header-logo{
+	max-width: 150px;
+}
+
+.menu-main-menu-container{
+	ul{
+		.list-reset();
+		display: flex;
+		padding-right: 60px;
+		li{
+			padding-left: 30px;
+			&:first-of-type{
+				padding-left: 0;
+			}
+			a{
+				color: @white;
+				text-decoration: none;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+.hero-banner{
+	height: 100vh;
+	padding-top: 100px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	&:before{
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	// with gradient
+	&.grad-top{
+		&:before{
+			.grad-top();
+		}
+	}
+	&.grad-bottom{
+		&:before{
+			.grad-bottom();
+		}
+	}
+	&.grad-top-bottom{
+		&:before{
+			.grad-top-bot();
+		}
+	}
+	&.grad-all{
+		&:before{
+			.grad-all();
+		}
+	}
+	// background image position
+	&.top{
+		background-position: top;
+	}
+	&.bottom{
+		background-position: bottom;
+	}
+	.banner-carousel{
+		margin-bottom: 0;
+		padding-top: 8rem;
+		padding-bottom: 8rem;
+		.slick-dots{
+			display: flex;
+			align-items: flex-end;
+			bottom: 0;
+			text-align: left;
+			.list-reset();
+			li{
+				width: 80px;
+				height: 3px;
+				display: flex;
+				align-items: flex-end;
+				background-color: @white;
+				button{
+					width: 80px;
+					height: 10px;
+					padding: 0;
+					background-color: transparent;
+					-webkit-transition: background-color ease .3s;
+					-o-transition: background-color ease .3s;
+					transition: background-color ease .3s;
+					&:before{
+						width: 80px;
+						height: 3px;
+						font-size: 0px;
+
+					}
+					&:hover, &:focus{
+						background-color: @white;
+					}
+				}
+				&.slick-active{
+					height: 10px;
+				}
+			}
+		}
+	}
+}

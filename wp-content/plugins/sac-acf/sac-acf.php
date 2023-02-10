@@ -109,7 +109,7 @@ if(!class_exists('acf')){
 	if(function_exists('acf_add_local_field_group')){
 		acf_add_local_field_group([
 			'key'		=> 'group_theme_options',
-			'title'		=> 'Theme Options',
+			'title'		=> 'Theme Optionsss',
 			'fields'	=> [
 				[
 					'key'			=> 'header_logo',
@@ -198,7 +198,49 @@ if(!class_exists('acf')){
 									'type'			=> 'image',
 									'return_format'	=> 'url',
 									'preview_size'	=> 'thumbnail',
-									'wrapper'		=> ['width' => '85%']
+									'wrapper'		=> ['width' => '15%']
+								],[
+									'key'			=> 'background_image_position',
+									'label'			=> 'Background Position',
+									'name'			=> 'background_image_position',
+									'type' 			=> 'radio',
+									'return_format'	=> 'value',
+									'choices' 		=> [
+										'top' 		=> 'Top',
+										'center' 	=> 'Center',
+										'bottom' 	=> 'Bottom'
+									],
+									'default_value' => 'center',
+									'wrapper'		=> ['width' => '15%']
+								],[
+									'key'			=> 'add_gradient',
+									'label'			=> 'Add Gradient',
+									'name'			=> 'add_gradient',
+									'type' 			=> 'true_false',
+									'default_value' => 1,
+									'ui' 			=> 1,
+									'ui_on_text' 	=> 'Yes',
+									'ui_off_text' 	=> 'No',
+									'wrapper'		=> ['width' => '15%']
+								],[
+									'key'			=> 'grad_color_posotion',
+									'label'			=> 'Gradient Color Position',
+									'name'			=> 'grad_color_posotion',
+									'type' 			=> 'radio',
+									'return_format'	=> 'value',
+									'choices' 		=> [
+										'top' 		=> 'Top',
+										'bottom' 	=> 'Bottom',
+										'top-bot' 	=> 'Top and Bottom',
+										'all' 		=> 'All'
+									],
+									'default_value' => 'center',
+									'wrapper'		=> ['width' => '15%'],
+									'conditional_logic'	=> [[[
+										'field'		=> 'add_gradient',
+										'operator'	=> '==',
+										'value'		=> '1'
+									]]]
 								],[
 									'key'			=> 'group_text',
 									'label'			=> 'Contents',
@@ -276,3 +318,12 @@ else
 	add_filter('acf/settings/load_json', 'sac_acf_json_load_point');	
 }
 
+function hcglobal_menu() {
+	register_nav_menus(
+		array(
+			'main-menu' 	=> __( 'Main Menu' ),
+			'footer-menu' 	=> __( 'Footer Menu' )
+		)
+	);
+}
+add_action( 'after_setup_theme', 'hcglobal_menu' );

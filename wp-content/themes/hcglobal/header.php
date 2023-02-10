@@ -8,15 +8,12 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&display=swap" rel="stylesheet">
+
 	<?php wp_head(); ?>
+	
+	<!-- <link rel="stylesheet/less" type="text/css" href="http://localhost/hcglobal/wp-content/themes/hcglobal/assets/css/main.less" /> -->
+	
 </head>
 <body <?php body_class(); ?>>
-	<header>
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					header
-				</div>
-			</div>
-		</div>
-	</header>
+	<?php get_template_part( "templates/partials/header-nav" ); ?>
+	
