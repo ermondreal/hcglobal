@@ -1,14 +1,16 @@
 <?php
-
-$banner_type 	= get_sub_field('banner_type');
-$bg_image 		= get_sub_field('background_image');
-$bg_image_pos 	= get_sub_field('background_image_position');
-$add_gradient 	= get_sub_field('add_gradient');
-$grad_color_pos	= get_sub_field('grad_color_posotion');
+if(have_rows('hero_banner_group')):
+	while(have_rows('hero_banner_group')) :
+		the_row();
+		$banner_type 	= get_sub_field('banner_type');
+		$bg_image 		= get_sub_field('background_image');
+		$bg_image_pos 	= get_sub_field('background_image_position');
+		$add_gradient 	= get_sub_field('add_gradient');
+		$grad_color_pos	= get_sub_field('grad_color_posotion');
 
 ?>
 
-<section class="hero-banner <?php echo 'grad-' . $grad_color_pos . ' '; echo $bg_image_pos; ?> d-flex _text-white" style="background-image:url(<?php echo $bg_image; ?>);">
+<section class="hero-banner <?php echo 'grad-' . $grad_color_pos . ' '; echo $bg_image_pos; ?> d-flex _text-white" style="background-image:url(<?php echo $bg_image; ?>);" type="section/module">
 	<div class="container <?php echo $banner_type . '-container'; ?>">
 		<div class="row">
 			<div class="col col-xl-8 col-lg-9">
@@ -58,3 +60,8 @@ $grad_color_pos	= get_sub_field('grad_color_posotion');
 		</div>
 	</div>
 </section>
+
+<?php
+	endwhile;
+endif;
+?>

@@ -1,6 +1,7 @@
 // Variables
 @white: #fff;
 @darkgray: #424242;
+@maroon: #b12124;
 
 *{font-family: 'Montserrat', sans-serif;font-size:18px;line-height: 1.3;}
 
@@ -11,12 +12,14 @@ p{
 	}
 }
 
-h1{font-size: 3.052rem; line-height: 1.1}
-h2{font-size: 2.441rem; line-height: 1.1}
-h3{font-size: 1.953rem; line-height: 1.1}
-h4{font-size: 1.563rem; line-height: 1.1}
-h5{font-size: 1.25rem; line-height: 1.1}
+h1{font-size: 3.052rem; line-height: 1.3}
+h2{font-size: 2.441rem; line-height: 1.3}
+h3{font-size: 1.953rem; line-height: 1.3}
+h4{font-size: 1.563rem; line-height: 1.3}
+h5{font-size: 1.25rem; line-height: 1.3}
 small, .text_small {font-size: 0.8rem;}
+
+h1:first-line,h2:first-line{line-height: .8;}
 
 // Colors
 ._text-white,
@@ -29,28 +32,136 @@ small, .text_small {font-size: 0.8rem;}
 }
 
 // Mixins
-.grad-top{
+.grad-d-top{
 	background: rgba(104,104,104,0.5);
-	background: linear-gradient(180deg, rgba(104,104,104,0.9) 5%, rgba(104,104,104,0) 100%);
+	background: linear-gradient(180deg, rgba(104,104,104,1) 5%, rgba(104,104,104,0) 100%);
 }
-.grad-bottom{
+.grad-d-bottom{
 	background: rgba(104,104,104,0.5);
-	background: linear-gradient(0deg, rgba(104,104,104,0.9) 5%, rgba(104,104,104,0) 100%);
+	background: linear-gradient(0deg, rgba(104,104,104,1) 5%, rgba(104,104,104,0) 100%);
 }
-.grad-top-bot{
+.grad-d-top-bot{
 	background: rgba(104,104,104,0.5);
-	background: linear-gradient(0deg, rgba(104,104,104,0.9) 0%, rgba(104,104,104,0) 50%, rgba(104,104,104,0.9) 100%)
+	background: linear-gradient(0deg, rgba(104,104,104,1) 5%, rgba(104,104,104,0.5) 50%, rgba(104,104,104,1) 100%);
 }
-.grad-all{
-	background: rgba(104,104,104,0.5);
-	background: linear-gradient(0deg, rgba(104,104,104,0.5) 0%, rgba(104,104,104,0.5) 100%)
+.grad-d-top-l-bot{
+	background: rgba(229,229,229,0.5);
+	background: linear-gradient(0deg, rgba(229,229,229,1) 5%, rgba(229,229,229,0.5) 50%, rgba(104,104,104,1) 100%);
+}
+.grad-l-top{
+	background: rgba(229,229,229,0.5);
+	background: linear-gradient(180deg, rgba(229,229,229,1) 5%, rgba(229,229,229,0) 100%);
+}
+.grad-l-bottom{
+	background: rgba(229,229,229,0.5);
+	background: linear-gradient(0deg, rgba(229,229,229,1) 5%, rgba(229,229,229,0) 100%);
+}
+.grad-l-top-bot{
+	background: rgba(229,229,229,0.5);
+	background: linear-gradient(0deg, rgba(229,229,229,1) 5%, rgba(229,229,229,0.5) 50%, rgba(229,229,229,1) 100%);
+}
+.grad-l-top-d-bot{
+	background: rgba(229,229,229,0.5);
+	background: linear-gradient(0deg, rgba(104,104,104,1) 5%, rgba(104,104,104,0.5) 50%, rgba(229,229,229,1) 100%);
 }
 .list-reset{
 	padding-left: 0;
 	margin-bottom: 0;
 	list-style-type: none;
 }
+.absolute-center{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
 
+// Section/Modules
+section[type="section/module"]{
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	&>.container{
+		z-index: 1;
+	}
+	&:before{
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 0;
+	}
+	// with gradient
+	&.grad-d-top{
+		&:before{
+			.grad-d-top();
+		}
+	}
+	&.grad-d-bottom{
+		&:before{
+			.grad-d-bottom();
+		}
+	}
+	&.grad-d-top-bot{
+		&:before{
+			.grad-d-top-bot();
+		}
+	}
+	&.grad-d-top-l-bot{
+		&:before{
+			.grad-d-top-l-bot();
+		}
+	}
+	&.grad-l-top{
+		&:before{
+			.grad-l-top();
+		}
+	}
+	&.grad-l-bottom{
+		&:before{
+			.grad-l-bottom();
+		}
+	}
+	&.grad-l-top-bot{
+		&:before{
+			.grad-l-top-bot();
+		}
+	}
+	&.grad-l-top-d-bot{
+		&:before{
+			.grad-l-top-d-bot();
+		}
+	}
+	// background image position
+	&.top{
+		background-position: top;
+	}
+	&.bottom{
+		background-position: bottom;
+	}
+}
+
+// Button
+.btn{
+	font-weight: 500;
+	border-radius: 0;
+	-webkit-transition: color ease .3s, background-color ease .3s;
+	-o-transition: color ease .3s, background-color ease .3s;
+	transition: color ease .3s, background-color ease .3s;
+	&.btn-white{
+		background-color: @white;
+		&:focus,
+		&:hover{
+			color: @white;
+			background-color: @maroon;
+		}
+	}
+}
 
 // Others
 ._hyperlink{

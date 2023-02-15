@@ -180,117 +180,396 @@ if(!class_exists('acf')){
 							'display'		=> 'block',
 							'sub_fields'	=> [
 								[
-									'key'			=> 'banner_type',
-									'label'			=> 'Banner Type',
-									'name'			=> 'banner_type',
-									'type' 			=> 'radio',
-									'return_format'	=> 'value',
-									'choices' 		=> [
-										'default' 		=> 'Default',
-										'carousel' 		=> 'Carousel'
-									],
-									'default_value' => 'default',
-									'wrapper'		=> ['width' => '15%']
-								],[
-									'key'			=> 'background_image',
-									'label'			=> 'Background Image',
-									'name'			=> 'background_image',
-									'type'			=> 'image',
-									'return_format'	=> 'url',
-									'preview_size'	=> 'thumbnail',
-									'wrapper'		=> ['width' => '15%']
-								],[
-									'key'			=> 'background_image_position',
-									'label'			=> 'Background Position',
-									'name'			=> 'background_image_position',
-									'type' 			=> 'radio',
-									'return_format'	=> 'value',
-									'choices' 		=> [
-										'top' 		=> 'Top',
-										'center' 	=> 'Center',
-										'bottom' 	=> 'Bottom'
-									],
-									'default_value' => 'center',
-									'wrapper'		=> ['width' => '15%']
-								],[
-									'key'			=> 'add_gradient',
-									'label'			=> 'Add Gradient',
-									'name'			=> 'add_gradient',
-									'type' 			=> 'true_false',
-									'default_value' => 1,
-									'ui' 			=> 1,
-									'ui_on_text' 	=> 'Yes',
-									'ui_off_text' 	=> 'No',
-									'wrapper'		=> ['width' => '15%']
-								],[
-									'key'			=> 'grad_color_posotion',
-									'label'			=> 'Gradient Color Position',
-									'name'			=> 'grad_color_posotion',
-									'type' 			=> 'radio',
-									'return_format'	=> 'value',
-									'choices' 		=> [
-										'top' 		=> 'Top',
-										'bottom' 	=> 'Bottom',
-										'top-bot' 	=> 'Top and Bottom',
-										'all' 		=> 'All'
-									],
-									'default_value' => 'center',
-									'wrapper'		=> ['width' => '15%'],
-									'conditional_logic'	=> [[[
-										'field'		=> 'add_gradient',
-										'operator'	=> '==',
-										'value'		=> '1'
-									]]]
-								],[
-									'key'			=> 'group_text',
-									'label'			=> 'Contents',
-									'name'			=> 'group_text',
-									'type'			=> 'group',
-									'sub_fields'	=> [
+									'key'	=> 'hero_banner_group',
+									'label'	=> 'Details',
+									'name'	=> 'hero_banner_group',
+									'type'	=> 'group',
+									'sub_fields' => [
 										[
-											'key'				=> 'title_default',
-											'label'				=> 'Title',
-											'name'				=> 'title_default',
-											'type'				=> 'text',
+											'key'			=> 'banner_type',
+											'label'			=> 'Banner Type',
+											'name'			=> 'banner_type',
+											'type' 			=> 'radio',
+											'return_format'	=> 'value',
+											'choices' 		=> [
+												'default' 		=> 'Default',
+												'carousel' 		=> 'Carousel'
+											],
+											'default_value' => 'default',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'background_image',
+											'label'			=> 'Background Image',
+											'name'			=> 'background_image',
+											'type'			=> 'image',
+											'return_format'	=> 'url',
+											'preview_size'	=> 'thumbnail',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'background_image_position',
+											'label'			=> 'Background Position',
+											'name'			=> 'background_image_position',
+											'type' 			=> 'radio',
+											'return_format'	=> 'value',
+											'choices' 		=> [
+												'top' 		=> 'Top',
+												'center' 	=> 'Center',
+												'bottom' 	=> 'Bottom'
+											],
+											'default_value' => 'center',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'add_gradient',
+											'label'			=> 'Add Gradient',
+											'name'			=> 'add_gradient',
+											'type' 			=> 'true_false',
+											'default_value' => 1,
+											'ui' 			=> 1,
+											'ui_on_text' 	=> 'Yes',
+											'ui_off_text' 	=> 'No',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'grad_color_posotion',
+											'label'			=> 'Gradient Color Position',
+											'name'			=> 'grad_color_posotion',
+											'type' 			=> 'radio',
+											'return_format'	=> 'value',
+											'choices' 		=> [
+												'd-top' 		=> 'Dark Top',
+												'd-bottom' 		=> 'Dark Bottom',
+												'd-top-bot'		=> 'Dark Top & Bottom',
+												'd-top-l-bot' 	=> 'Dark Top, Light Bottom',
+												'l-top' 		=> 'Light Top',
+												'l-bot' 		=> 'Light Bottom',
+												'l-top-bot'		=> 'Light Top & Bottom',
+												'l-top-d-bot' 	=> 'Light Top, Dark Bottom'
+											],
+											'default_value' => 'center',
+											'wrapper'		=> ['width' => '15%'],
 											'conditional_logic'	=> [[[
-												'field'		=> 'banner_type',
+												'field'		=> 'add_gradient',
 												'operator'	=> '==',
-												'value'		=> 'default'
+												'value'		=> '1'
 											]]]
 										],[
-											'key'			=> 'content_default',
-											'label'			=> 'Content',
-											'name'			=> 'content_default',
-											'type'			=> 'wysiwyg',
-											'conditional_logic'	=> [[[
-												'field'		=> 'banner_type',
-												'operator'	=> '==',
-												'value'		=> 'default'
-											]]]
-										],[
-											'key'			=> 'carousel',
-											'label'			=> 'Carousel',
-											'name'			=> 'carousel',
-											'type'			=> 'repeater',
-											'button_label'	=> 'Add carousel',
+											'key'			=> 'group_text',
+											'label'			=> 'Contents',
+											'name'			=> 'group_text',
+											'type'			=> 'group',
 											'sub_fields'	=> [
 												[
-													'key'				=> 'title_carousel',
+													'key'				=> 'title_default',
 													'label'				=> 'Title',
-													'name'				=> 'title_carousel',
-													'type'				=> 'text'
+													'name'				=> 'title_default',
+													'type'				=> 'text',
+													'conditional_logic'	=> [[[
+														'field'		=> 'banner_type',
+														'operator'	=> '==',
+														'value'		=> 'default'
+													]]]
 												],[
-													'key'			=> 'content_carousel',
+													'key'			=> 'content_default',
 													'label'			=> 'Content',
-													'name'			=> 'content_carousel',
-													'type'			=> 'wysiwyg'
+													'name'			=> 'content_default',
+													'type'			=> 'wysiwyg',
+													'conditional_logic'	=> [[[
+														'field'		=> 'banner_type',
+														'operator'	=> '==',
+														'value'		=> 'default'
+													]]]
+												],[
+													'key'			=> 'carousel',
+													'label'			=> 'Carousel',
+													'name'			=> 'carousel',
+													'type'			=> 'repeater',
+													'button_label'	=> 'Add carousel',
+													'sub_fields'	=> [
+														[
+															'key'				=> 'title_carousel',
+															'label'				=> 'Title',
+															'name'				=> 'title_carousel',
+															'type'				=> 'text'
+														],[
+															'key'			=> 'content_carousel',
+															'label'			=> 'Content',
+															'name'			=> 'content_carousel',
+															'type'			=> 'wysiwyg'
+														]
+													],
+													'conditional_logic'	=> [[[
+														'field'		=> 'banner_type',
+														'operator'	=> '==',
+														'value'		=> 'carousel'
+													]]]
 												]
+											]
+										]
+									]
+								]
+							]
+						],[
+							// ACCORDION
+							'key'			=> 'accordion',
+							'label'			=> 'Accordion',
+							'name'			=> 'accordion',
+							'display'		=> 'block',
+							'sub_fields'	=> [
+								[
+									'key'	=> 'accordion_group',
+									'label'	=> 'Details',
+									'name'	=> 'accordion_group',
+									'type'	=> 'group',
+									'sub_fields' => [
+										[
+											'key'			=> 'background_image',
+											'label'			=> 'Background Image',
+											'name'			=> 'background_image',
+											'type'			=> 'image',
+											'return_format'	=> 'url',
+											'preview_size'	=> 'thumbnail',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'background_image_position',
+											'label'			=> 'Background Position',
+											'name'			=> 'background_image_position',
+											'type' 			=> 'radio',
+											'return_format'	=> 'value',
+											'choices' 		=> [
+												'top' 		=> 'Top',
+												'center' 	=> 'Center',
+												'bottom' 	=> 'Bottom'
 											],
+											'default_value' => 'center',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'add_gradient',
+											'label'			=> 'Add Gradient',
+											'name'			=> 'add_gradient',
+											'type' 			=> 'true_false',
+											'default_value' => 1,
+											'ui' 			=> 1,
+											'ui_on_text' 	=> 'Yes',
+											'ui_off_text' 	=> 'No',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'grad_color_posotion',
+											'label'			=> 'Gradient Color Position',
+											'name'			=> 'grad_color_posotion',
+											'type' 			=> 'radio',
+											'return_format'	=> 'value',
+											'choices' 		=> [
+												'd-top' 		=> 'Dark Top',
+												'd-bottom' 		=> 'Dark Bottom',
+												'd-top-bot'		=> 'Dark Top & Bottom',
+												'd-top-l-bot' 	=> 'Dark Top, Light Bottom',
+												'l-top' 		=> 'Light Top',
+												'l-bot' 		=> 'Light Bottom',
+												'l-top-bot'		=> 'Light Top & Bottom',
+												'l-top-d-bot' 	=> 'Light Top, Dark Bottom'
+											],
+											'default_value' 	=> 'center',
+											'wrapper'			=> ['width' => '15%'],
 											'conditional_logic'	=> [[[
-												'field'		=> 'banner_type',
-												'operator'	=> '==',
-												'value'		=> 'carousel'
+												'field'			=> 'add_gradient',
+												'operator'		=> '==',
+												'value'			=> '1'
 											]]]
+										],[
+											'key'			=> 'acc_group_text',
+											'label'			=> 'Contents',
+											'name'			=> 'acc_group_text',
+											'type'			=> 'group',
+											'sub_fields'	=> [
+												[
+													'key'	=> 'section_title',
+													'label'	=> 'Section Title',
+													'name'	=> 'section_title',
+													'type'	=> 'text'
+												],[
+													'key'			=> 'accordion_items',
+													'label'			=> 'Accordion Items',
+													'name'			=> 'accordion_items',
+													'type'			=> 'repeater',
+													'button_label'	=> 'Add item',
+													'sub_fields'	=> [
+														[
+															'key'	=> 'acc_title',
+															'label'	=> 'Title',
+															'name'	=> 'acc_title',
+															'type'	=> 'text'
+														],[
+															'key'	=> 'acc_content',
+															'label'	=> 'Content',
+															'name'	=> 'acc_content',
+															'type'	=> 'wysiwyg'
+														]
+													]
+												]
+											]
+										]
+									]
+								]
+							]
+						],[
+							// Pie Chart
+							'key'			=> 'pie_chart',
+							'label'			=> 'Pie Chart',
+							'name'			=> 'pie_chart',
+							'display'		=> 'block',
+							'sub_fields'	=> [
+								[
+									'key'	=> 'piechart_group',
+									'label'	=> 'Details',
+									'name'	=> 'piechart_group',
+									'type'	=> 'group',
+									'sub_fields' => [
+										[
+											'key'			=> 'background_image',
+											'label'			=> 'Background Image',
+											'name'			=> 'background_image',
+											'type'			=> 'image',
+											'return_format'	=> 'url',
+											'preview_size'	=> 'thumbnail',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'background_image_position',
+											'label'			=> 'Background Position',
+											'name'			=> 'background_image_position',
+											'type' 			=> 'radio',
+											'return_format'	=> 'value',
+											'choices' 		=> [
+												'top' 		=> 'Top',
+												'center' 	=> 'Center',
+												'bottom' 	=> 'Bottom'
+											],
+											'default_value' => 'center',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'add_gradient',
+											'label'			=> 'Add Gradient',
+											'name'			=> 'add_gradient',
+											'type' 			=> 'true_false',
+											'default_value' => 1,
+											'ui' 			=> 1,
+											'ui_on_text' 	=> 'Yes',
+											'ui_off_text' 	=> 'No',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'grad_color_posotion',
+											'label'			=> 'Gradient Color Position',
+											'name'			=> 'grad_color_posotion',
+											'type' 			=> 'radio',
+											'return_format'	=> 'value',
+											'choices' 		=> [
+												'd-top' 		=> 'Dark Top',
+												'd-bottom' 		=> 'Dark Bottom',
+												'd-top-bot'		=> 'Dark Top & Bottom',
+												'd-top-l-bot' 	=> 'Dark Top, Light Bottom',
+												'l-top' 		=> 'Light Top',
+												'l-bot' 		=> 'Light Bottom',
+												'l-top-bot'		=> 'Light Top & Bottom',
+												'l-top-d-bot' 	=> 'Light Top, Dark Bottom'
+											],
+											'default_value' => 'center',
+											'wrapper'		=> ['width' => '15%'],
+											'conditional_logic'	=> [[[
+												'field'		=> 'add_gradient',
+												'operator'	=> '==',
+												'value'		=> '1'
+											]]]
+										],[
+											'key'			=> 'piechart_group_text',
+											'label'			=> 'Contents',
+											'name'			=> 'piechart_group_text',
+											'type'			=> 'group',
+											'layout'		=> 'block',
+											'sub_fields'	=> [
+												[
+													'key'		=> 'section_title',
+													'label'		=> 'Section Title',
+													'name'		=> 'section_title',
+													'type'		=> 'text',
+													'wrapper'	=> ['width' => '100%']
+												],[
+													'key'			=> 'piechart_count',
+													'label'			=> 'Pie chart',
+													'name'			=> 'piechart_count',
+													'type'			=> 'repeater',
+													'layout'		=> 'block',
+													'button_label'	=> 'Add pie chart',
+													'wrapper'		=> ['width' => '60%'],
+													'sub_fields'	=> [
+														[
+															'key'		=> 'piechart_text',
+															'label'		=> 'Pie chart text',
+															'name'		=> 'piechart_text',
+															'type'		=> 'wysiwyg',
+															'wrapper'	=> ['width' => '40%']
+														],[
+															'key'			=> 'piechart_items',
+															'label'			=> 'Pie chart Items',
+															'name'			=> 'piechart_items',
+															'type'			=> 'repeater',
+															'button_label'	=> 'Add pie chart item',
+															'wrapper'		=> ['width' => '60%'],
+															'sub_fields'	=> [
+																[
+																	'key'		=> 'piechart_title',
+																	'label'		=> 'Title',
+																	'name'		=> 'piechart_title',
+																	'type'		=> 'text',
+																	'wrapper'	=> ['width' => '70%']
+																],[
+																	'key'			=> 'piechart_percentage',
+																	'label'			=> 'Percentage',
+																	'name'			=> 'piechart_percentage',
+																	'type' 			=> 'number',
+																	'min' 			=> 0,
+																	'max' 			=> 100,
+																	'step' 			=> 1,
+																	'default_value' => 0,
+																	'wrapper'		=> ['width' => '30%']
+																]
+															]
+														]
+													]
+												],[
+													'key'			=> 'piechart_numbers',
+													'label'			=> 'Pie chart Breakdown',
+													'name'			=> 'piechart_numbers',
+													'type'			=> 'repeater',
+													'button_label'	=> 'Add breakdown',
+													'wrapper'		=> ['width' => '40%'],
+													'sub_fields'	=> [
+														[
+															'key'		=> 'piechart_breakdown_title',
+															'label'		=> 'Title',
+															'name'		=> 'piechart_breakdown_title',
+															'type'		=> 'text',
+															'wrapper'	=> ['width' => '40%']
+														],[
+															'key'			=> 'piechart_breakdown_num',
+															'label'			=> 'Number',
+															'name'			=> 'piechart_breakdown_num',
+															'type' 			=> 'number',
+															'min' 			=> 0,
+															'step' 			=> 1,
+															'default_value' => 0,
+															'wrapper'		=> ['width' => '40%']
+														],[
+															'key'			=> 'piechart_breakdown_plus',
+															'label'			=> 'Add plus sign',
+															'name'			=> 'piechart_breakdown_plus',
+															'type' 			=> 'true_false',
+															'default_value' => 1,
+															'ui' 			=> 1,
+															'ui_on_text' 	=> 'Yes',
+															'ui_off_text' 	=> 'No',
+															'wrapper'		=> ['width' => '20%']
+														]
+													]
+												]
+											]
 										]
 									]
 								]

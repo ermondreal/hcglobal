@@ -7,7 +7,6 @@
         	the_row();
             
             $layout = get_row_layout();
-
             if(locate_template("templates/sections/".$layout.".php") != '') {
                 get_template_part( "templates/sections/$layout" );
             }

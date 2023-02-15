@@ -6,7 +6,7 @@
          // loop through the rows of data
         while ( have_rows('flexible_modules', $section) ) : the_row();
             
-            $layout = get_row_layout();   
+            $layout = get_row_layout();
             if (locate_template("templates/sections/".$layout.".php") != '') {
                 if(!get_sub_field('hide_section')) {
                     get_template_part( "templates/sections/$layout" );
