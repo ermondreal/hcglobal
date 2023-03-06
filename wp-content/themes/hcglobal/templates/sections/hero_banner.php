@@ -10,7 +10,7 @@ if(have_rows('hero_banner_group')):
 
 ?>
 
-<section class="hero-banner <?php echo 'grad-' . $grad_color_pos . ' '; echo $bg_image_pos; ?> d-flex _text-white" style="background-image:url(<?php echo $bg_image; ?>);" type="section/module">
+<section class="hero-banner <?php if($add_gradient == true): echo 'grad-' . $grad_color_pos . ' '; endif; echo $bg_image_pos; ?> d-flex _text-white" style="background-image:url(<?php echo $bg_image; ?>);" type="section/module">
 	<div class="container <?php echo $banner_type . '-container'; ?>">
 		<div class="row">
 			<div class="col col-xl-8 col-lg-9">

@@ -9,7 +9,7 @@ if(have_rows('piechart_group')):
 
 ?>
 
-<section class="py-5 <?php echo 'grad-' . $grad_color_pos . ' '; echo $bg_image_pos; ?> d-flex" style="background-image:url(<?php echo $bg_image; ?>);" type="section/module">
+<section class="py-5 <?php if($add_gradient == true): echo 'grad-' . $grad_color_pos . ' '; endif; echo $bg_image_pos; ?> d-flex" style="background-image:url(<?php echo $bg_image; ?>);" type="section/module">
 	<div class="container">
 		<div class="row">
 			<div class="col">
@@ -30,7 +30,7 @@ if(have_rows('piechart_group')):
 										$piechart_text = get_sub_field('piechart_text');
 								?>
 										<div class="pie-chart-section d-flex align-items-center justify-content-evenly justify-content-lg-start">
-											<div class="pie-chart-container d-flex col-6 col-lg-7">
+											<div class="pie-chart-container d-flex col-6 col-lg-7 justify-content-center">
 												<form class="pie-chart pie-chart<?php echo $pie_chart; ?>">
 													<div class="pie-chart-text">
 														<div class="_content">

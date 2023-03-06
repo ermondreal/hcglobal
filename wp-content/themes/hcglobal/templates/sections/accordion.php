@@ -9,7 +9,7 @@ if(have_rows('accordion_group')):
 
 ?>
 
-<section class="accordion-section py-5 <?php echo 'grad-' . $grad_color_pos . ' '; echo $bg_image_pos; ?> d-flex _text-white" style="background-image:url(<?php echo $bg_image; ?>);" type="section/module">
+<section class="accordion-section py-5 <?php if($add_gradient == true): echo 'grad-' . $grad_color_pos . ' '; endif; echo $bg_image_pos; ?> d-flex _text-white" style="background-image:url(<?php echo $bg_image; ?>);" type="section/module">
 	<div class="container">
 		<div class="row">
 			<div class="col">

@@ -574,6 +574,325 @@ if(!class_exists('acf')){
 									]
 								]
 							]
+						],[
+							// Testimonial
+							'key'			=> 'testimonial',
+							'label'			=> 'Testimonial',
+							'name'			=> 'testimonial',
+							'display'		=> 'block',
+							'sub_fields'	=> [
+								[
+									'key'	=> 'testimonial_group',
+									'label'	=> 'Details',
+									'name'	=> 'testimonial_group',
+									'type'	=> 'group',
+									'sub_fields' => [
+										[
+											'key'			=> 'background_image',
+											'label'			=> 'Background Image',
+											'name'			=> 'background_image',
+											'type'			=> 'image',
+											'return_format'	=> 'url',
+											'preview_size'	=> 'thumbnail',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'background_image_position',
+											'label'			=> 'Background Position',
+											'name'			=> 'background_image_position',
+											'type' 			=> 'radio',
+											'return_format'	=> 'value',
+											'choices' 		=> [
+												'top' 		=> 'Top',
+												'center' 	=> 'Center',
+												'bottom' 	=> 'Bottom'
+											],
+											'default_value' => 'center',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'add_gradient',
+											'label'			=> 'Add Gradient',
+											'name'			=> 'add_gradient',
+											'type' 			=> 'true_false',
+											'default_value' => 1,
+											'ui' 			=> 1,
+											'ui_on_text' 	=> 'Yes',
+											'ui_off_text' 	=> 'No',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'grad_color_posotion',
+											'label'			=> 'Gradient Color Position',
+											'name'			=> 'grad_color_posotion',
+											'type' 			=> 'radio',
+											'return_format'	=> 'value',
+											'choices' 		=> [
+												'd-top' 		=> 'Dark Top',
+												'd-bottom' 		=> 'Dark Bottom',
+												'd-top-bot'		=> 'Dark Top & Bottom',
+												'd-top-l-bot' 	=> 'Dark Top, Light Bottom',
+												'l-top' 		=> 'Light Top',
+												'l-bot' 		=> 'Light Bottom',
+												'l-top-bot'		=> 'Light Top & Bottom',
+												'l-top-d-bot' 	=> 'Light Top, Dark Bottom'
+											],
+											'default_value' => 'center',
+											'wrapper'		=> ['width' => '15%'],
+											'conditional_logic'	=> [[[
+												'field'		=> 'add_gradient',
+												'operator'	=> '==',
+												'value'		=> '1'
+											]]]
+										],[
+											'key'			=> 'testimonial_group_text',
+											'label'			=> 'Contents',
+											'name'			=> 'testimonial_group_text',
+											'type'			=> 'group',
+											'layout'		=> 'block',
+											'sub_fields'	=> [
+												[
+													'key'		=> 'section_title',
+													'label'		=> 'Section Title',
+													'name'		=> 'section_title',
+													'type'		=> 'text',
+													'wrapper'	=> ['width' => '100%']
+												],[
+													'key'			=> 'testimonial_items',
+													'label'			=> 'Testimonial Items',
+													'name'			=> 'testimonial_items',
+													'type'			=> 'repeater',
+													'button_label'	=> 'Add testimonial',
+													'sub_fields'	=> [
+														[
+															'key'			=> 'testimonial_content',
+															'label'			=> 'Content',
+															'name'			=> 'testimonial_content',
+															'type'			=> 'wysiwyg',
+															'wrapper'		=> ['width' => '20%']
+														],[
+															'key'			=> 'testimonial_name',
+															'label'			=> 'Name',
+															'name'			=> 'testimonial_name',
+															'type' 			=> 'text',
+															'wrapper'		=> ['width' => '20%']
+														],[
+															'key'			=> 'testimonial_position',
+															'label'			=> 'Position',
+															'name'			=> 'testimonial_position',
+															'type' 			=> 'text',
+															'wrapper'		=> ['width' => '20%']
+														],[
+															'key'			=> 'testimonial_company',
+															'label'			=> 'Company',
+															'name'			=> 'testimonial_company',
+															'type' 			=> 'text',
+															'wrapper'		=> ['width' => '20%']
+														],[
+															'key'			=> 'testimonial_photo',
+															'label'			=> 'Photo',
+															'name'			=> 'testimonial_photo',
+															'type' 			=> 'image',
+															'return_format'	=> 'array',
+															'preview_size'	=> 'thumbnail',
+															'wrapper'		=> ['width' => '20%']
+														]
+													]
+												]
+											]
+										]
+									]
+								]
+							]
+						],[
+							// Multiple section
+							'key'			=> 'multiple_section',
+							'label'			=> 'Multiple Section',
+							'name'			=> 'multiple_section',
+							'display'		=> 'block',
+							'sub_fields'	=> [
+								[
+									'key'	=> 'multiple_section_group',
+									'label'	=> 'Details',
+									'name'	=> 'multiple_section_group',
+									'type'	=> 'group',
+									'sub_fields' => [
+										[
+											'key'			=> 'background_image',
+											'label'			=> 'Background Image',
+											'name'			=> 'background_image',
+											'type'			=> 'image',
+											'return_format'	=> 'url',
+											'preview_size'	=> 'thumbnail',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'background_image_position',
+											'label'			=> 'Background Position',
+											'name'			=> 'background_image_position',
+											'type' 			=> 'radio',
+											'return_format'	=> 'value',
+											'choices' 		=> [
+												'top' 		=> 'Top',
+												'center' 	=> 'Center',
+												'bottom' 	=> 'Bottom'
+											],
+											'default_value' => 'center',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'add_gradient',
+											'label'			=> 'Add Gradient',
+											'name'			=> 'add_gradient',
+											'type' 			=> 'true_false',
+											'default_value' => 1,
+											'ui' 			=> 1,
+											'ui_on_text' 	=> 'Yes',
+											'ui_off_text' 	=> 'No',
+											'wrapper'		=> ['width' => '15%']
+										],[
+											'key'			=> 'grad_color_posotion',
+											'label'			=> 'Gradient Color Position',
+											'name'			=> 'grad_color_posotion',
+											'type' 			=> 'radio',
+											'return_format'	=> 'value',
+											'choices' 		=> [
+												'd-top' 		=> 'Dark Top',
+												'd-bottom' 		=> 'Dark Bottom',
+												'd-top-bot'		=> 'Dark Top & Bottom',
+												'd-top-l-bot' 	=> 'Dark Top, Light Bottom',
+												'l-top' 		=> 'Light Top',
+												'l-bot' 		=> 'Light Bottom',
+												'l-top-bot'		=> 'Light Top & Bottom',
+												'l-top-d-bot' 	=> 'Light Top, Dark Bottom'
+											],
+											'default_value' => 'center',
+											'wrapper'		=> ['width' => '15%'],
+											'conditional_logic'	=> [[[
+												'field'		=> 'add_gradient',
+												'operator'	=> '==',
+												'value'		=> '1'
+											]]]
+										],[
+											'key'			=> 'multiple_section_group_text',
+											'label'			=> 'Contents',
+											'name'			=> 'multiple_section_group_text',
+											'type'			=> 'group',
+											'layout'		=> 'block',
+											'sub_fields'	=> [
+												[
+													'key'			=> 'select_section',
+													'label'			=> 'Select Section',
+													'name'			=> 'select_section',
+													'type' 			=> 'checkbox',
+													'layout' 		=> 'horizontal',
+													'return_format' => 'value',
+													'choices' 		=> [
+														'ms_piechart' 		=> 'Pie Chart',
+														'ms_testimonial' 	=> 'Testimonial',
+														'ms_team' 			=> 'Team',
+														'ms_technology'		=> 'Technology'
+													],
+													'wrapper'		=> ['width' => '100%']
+												],[
+													'key'			=> 'ms_piechart_group_text',
+													'label'			=> 'Contents',
+													'name'			=> 'ms_piechart_group_text',
+													'type'			=> 'group',
+													'layout'		=> 'block',
+													'conditional_logic'	=> [[[
+														'field'		=> 'select_section',
+														'operator'	=> '==',
+														'value'		=> 'ms_piechart'
+													]]],
+													'sub_fields'	=> [
+														[
+															'key'		=> 'ms_section_title',
+															'label'		=> 'Section Title',
+															'name'		=> 'ms_section_title',
+															'type'		=> 'text',
+															'wrapper'	=> ['width' => '100%']
+														],[
+															'key'			=> 'ms_piechart_count',
+															'label'			=> 'Pie chart',
+															'name'			=> 'ms_piechart_count',
+															'type'			=> 'repeater',
+															'layout'		=> 'block',
+															'button_label'	=> 'Add pie chart',
+															'wrapper'		=> ['width' => '60%'],
+															'sub_fields'	=> [
+																[
+																	'key'		=> 'ms_piechart_text',
+																	'label'		=> 'Pie chart text',
+																	'name'		=> 'ms_piechart_text',
+																	'type'		=> 'wysiwyg',
+																	'wrapper'	=> ['width' => '40%']
+																],[
+																	'key'			=> 'ms_piechart_items',
+																	'label'			=> 'Pie chart Items',
+																	'name'			=> 'ms_piechart_items',
+																	'type'			=> 'repeater',
+																	'button_label'	=> 'Add pie chart item',
+																	'wrapper'		=> ['width' => '60%'],
+																	'sub_fields'	=> [
+																		[
+																			'key'		=> 'ms_piechart_title',
+																			'label'		=> 'Title',
+																			'name'		=> 'ms_piechart_title',
+																			'type'		=> 'text',
+																			'wrapper'	=> ['width' => '70%']
+																		],[
+																			'key'			=> 'ms_piechart_percentage',
+																			'label'			=> 'Percentage',
+																			'name'			=> 'ms_piechart_percentage',
+																			'type' 			=> 'number',
+																			'min' 			=> 0,
+																			'max' 			=> 100,
+																			'step' 			=> 1,
+																			'default_value' => 0,
+																			'wrapper'		=> ['width' => '30%']
+																		]
+																	]
+																]
+															]
+														],[
+															'key'			=> 'ms_piechart_numbers',
+															'label'			=> 'Pie chart Breakdown',
+															'name'			=> 'ms_piechart_numbers',
+															'type'			=> 'repeater',
+															'button_label'	=> 'Add breakdown',
+															'wrapper'		=> ['width' => '40%'],
+															'sub_fields'	=> [
+																[
+																	'key'		=> 'ms_piechart_breakdown_title',
+																	'label'		=> 'Title',
+																	'name'		=> 'ms_piechart_breakdown_title',
+																	'type'		=> 'text',
+																	'wrapper'	=> ['width' => '40%']
+																],[
+																	'key'			=> 'ms_piechart_breakdown_num',
+																	'label'			=> 'Number',
+																	'name'			=> 'ms_piechart_breakdown_num',
+																	'type' 			=> 'number',
+																	'min' 			=> 0,
+																	'step' 			=> 1,
+																	'default_value' => 0,
+																	'wrapper'		=> ['width' => '40%']
+																],[
+																	'key'			=> 'ms_piechart_breakdown_plus',
+																	'label'			=> 'Add plus sign',
+																	'name'			=> 'ms_piechart_breakdown_plus',
+																	'type' 			=> 'true_false',
+																	'default_value' => 1,
+																	'ui' 			=> 1,
+																	'ui_on_text' 	=> 'Yes',
+																	'ui_off_text' 	=> 'No',
+																	'wrapper'		=> ['width' => '20%']
+																]
+															]
+														]
+													]
+												]
+											]
+										]
+									]
+								]
+							]
 						]
 					]
 				]

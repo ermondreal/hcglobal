@@ -7,34 +7,37 @@ jQuery(document).ready(function($){
 		arrows: false,
 		dots: true
 	});
+	$('.testimonial-carousel')
+	.on('afterChange init', function(event, slick, direction){
+		// console.log('afterChange/init', event, slick, slick.$slides);
+		// remove all prev/next
+		slick.$slides.removeClass('prev-testimonial').removeClass('next-testimonial');
 
-	// Basic Animation
-	function scrollLoad(){
-		if ($(".animated")[0]) {
-			$(".animated").each(function () {
-				var wH = $(window).height();
-				var sT = $(window).scrollTop();
-				var oT = $(this).offset().top;
-				var s = wH + sT - 10;
-				var fadeInUpAnim = $(this).attr("data-animation") == "fadeInUp";
-				var fadeInDownAnim = $(this).attr("data-animation") == "fadeInDown";
-				var fadeInLeftAnim = $(this).attr("data-animation") == "fadeInLeft";
-				var fadeInRightAnim = $(this).attr("data-animation") == "fadeInRight";
-				if (s > oT && fadeInUpAnim) {
-					$(this).addClass("fadeInUp");
-				} else if (s > oT && fadeInDownAnim) {
-					$(this).addClass("fadeInDown");
-				} else if (s > oT && fadeInLeftAnim) {
-					$(this).addClass("fadeInLeft");
-				} else if (s > oT && fadeInRightAnim) {
-					$(this).addClass("fadeInRight");
-				} else {
-				}
-			});
+		// find current slide
+		for (var i = 0; i < slick.$slides.length; i++){
+			var $slide = $(slick.$slides[i]);
+			if ($slide.hasClass('slick-current')) {
+				// update DOM siblings
+				$slide.prev().addClass('prev-testimonial');
+				$slide.next().addClass('next-testimonial');
+				break;
+			}
 		}
-	};
-	scrollLoad();
-	$(window).scroll(scrollLoad);
+	})
+	.on('beforeChange', function(event, slick) {
+		// optional, but cleaner maybe
+		// remove all prev/next
+		slick.$slides.removeClass('prev-testimonial').removeClass('next-testimonial');
+	})
+	.slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		centerMode: true,
+		centerPadding: '200px',
+		arrows: true
+	});
+	// var th = $('.testimonial-carousel').height();
+	// $('.testimonial-item ._overlay').height(th);
 
 	// Accordion
 	function accordion(){
@@ -77,6 +80,34 @@ jQuery(document).ready(function($){
 	accordion();
 	$(window).resize(accordion);
 
+	// Basic Animation
+	function scrollLoad(){
+		if ($(".animated")[0]) {
+			$(".animated").each(function () {
+				var wH = $(window).height();
+				var sT = $(window).scrollTop();
+				var oT = $(this).offset().top;
+				var s = wH + sT - 10;
+				var fadeInUpAnim = $(this).attr("data-animation") == "fadeInUp";
+				var fadeInDownAnim = $(this).attr("data-animation") == "fadeInDown";
+				var fadeInLeftAnim = $(this).attr("data-animation") == "fadeInLeft";
+				var fadeInRightAnim = $(this).attr("data-animation") == "fadeInRight";
+				if (s > oT && fadeInUpAnim) {
+					$(this).addClass("fadeInUp");
+				} else if (s > oT && fadeInDownAnim) {
+					$(this).addClass("fadeInDown");
+				} else if (s > oT && fadeInLeftAnim) {
+					$(this).addClass("fadeInLeft");
+				} else if (s > oT && fadeInRightAnim) {
+					$(this).addClass("fadeInRight");
+				} else {
+				}
+			});
+		}
+	};
+	scrollLoad();
+	$(window).scroll(scrollLoad);
+
 	// Add background color to header nav
 	function addBG_nav(){
 		if($(window).scrollTop() > 2){
@@ -92,7 +123,7 @@ jQuery(document).ready(function($){
 	// Pie chart
 	var pieChart = document.getElementsByClassName('pie-chart-container');
 	for (var i = 0; i < pieChart.length; i++) {
-		document.querySelectorAll('.pie-chart')[i].piechart1 = function() { 
+		document.querySelectorAll('.pie-chart')[i].piechart = function() { 
 			var colors = ['#6D0F16','#842027','#87484D','#BC5E65','#DB525C', '#591D21','#600007','#49050A', '#200406', 'maroon']; 
 			var slices = []; var values = []; 
 			var percents = [i]; var n = 0; 
@@ -114,7 +145,7 @@ jQuery(document).ready(function($){
 			h.innerHTML = svgstring;
 			pie_result.value = totalz;
 		}
-		document.querySelectorAll('.pie-chart')[i].piechart1();
+		document.querySelectorAll('.pie-chart')[i].piechart();
 	}
 		
 });
